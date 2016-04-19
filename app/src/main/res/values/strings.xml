@@ -1,0 +1,56 @@
+<resources xmlns:xliff="http://schemas.android.com/apk/res-auto">
+    <string name="app_name" translatable="false">Stock Hawk</string>
+
+    <string name="action_example" translatable="true">Example action</string>
+
+    <string name="action_change_units" translatable="true">Change Units</string>
+    <string name="symbol_search" translatable="true">Symbol Search</string>
+    <string name="content_test" translatable="true">Search for a Stock Symbol</string>
+    <string name="input_hint" translatable="false">FB</string>
+    <string name="input_prefill"></string>
+    <string name="widget_title" translatable="true">Today\'s Market</string>
+    <string name="network_toast" translatable="true">Uh-oh! This app requires an internet connection</string>
+    <string name="title_activity_stock_detail" translatable="false">StockDetailActivity</string>
+
+    !--Detail Fragment-->
+    <string name="day_high_lbl" translatable="false">Day High:</string>
+    <string name="day_lo_lbl" translatable="false">Day Low:</string>
+    <string name="year_high_lbl" translatable="false">Year High:</string>
+    <string name="year_lo_lbl" translatable="false">Year Low:</string>
+    <string name="avg_day_vol_lbl" translatable="false">Avg Day Vol:</string>
+    <string name="volume" translatable="false">Volume</string>
+    <string name="d1" translatable="false">1d</string>
+    <string name="w1" translatable="false">1w</string>
+    <string name="m1" translatable="false">1m</string>
+    <string name="y1" translatable="false">1y</string>
+    <string name="y5" translatable="false">5y</string>
+    <string name="max" translatable="false">max</string>
+
+    <!-- Settings - Preferences -->
+    <string name="action_settings" translatable="true">Settings</string>
+
+    <!-- strings to dislay when the database is empty and there is no connection -->
+    <string name="empty_stock_ticker_list" translatable="true">No stock information to display or the data is out of date</string>
+
+    <!-- requires an account to establish the project number used by GCM-->
+    <string name="google_app_id" translatable="false">YOUR_PROJECT_NUMBER</string>
+
+    <!-- Accessibility -->
+    <string name="a11y_fab" translatable="true">Click to add a new stock ticker to the list</string>
+    <string name="a11y_symbol" translatable="true">Stock Ticker Symbol is: <xliff:g id="symbol">%1$s</xliff:g> </string>
+    <string name="a11y_quote" translatable="true">The current bid for <xliff:g id="company">%1$s</xliff:g> is: <xliff:g id="symbol">%2$s</xliff:g>   </string>
+    <string name="a11y_change" translatable="true">The change in the current bid is: <xliff:g id="amount">%1$s</xliff:g> </string>
+    <string name="a11y_day_hi" translatable="true">Today\'s High is: <xliff:g id="amount">%1$s</xliff:g> </string>
+    <string name="a11y_day_lo" translatable="true">Today\'s Low is: <xliff:g id="amount">%1$s</xliff:g> </string>
+    <string name="a11y_year_hi" translatable="true">This year\'s high is: <xliff:g id="amount">%1$s</xliff:g> </string>
+    <string name="a11y_year_lo" translatable="true">This year\'s Low is: <xliff:g id="amount">%1$s</xliff:g> </string>
+    <string name="a11y_avg_day_volume" translatable="true">Today\s average volume is: <xliff:g id="quantity">%1$s</xliff:g> </string>
+    <string name="a11y_volume" translatable="true">Volume is: <xliff:g id="quantity">%1$s</xliff:g> </string>
+    <string name="a11y_btn_1d" translatable="true">Click to show stock prices for the current day</string>
+    <string name="a11y_btn_5d"  translatable="true">Click to show stock prices for the current week</string>
+    <string name="a11y_btn_1m" translatable="true">Click to show stock prices for the current month</string>
+    <string name="a11y_btn_1y" translatable="true">Click to show stock prices for the current year</string>
+    <string name="a11y_btn_5y" translatable="true">Click to show stock prices for the past five years</string>
+    <string name="a11y_btn_max" translatable="true">Click to show stock prices for all years</string>
+
+</resources>
