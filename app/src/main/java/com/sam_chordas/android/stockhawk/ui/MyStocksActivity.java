@@ -137,22 +137,7 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
                                 public void onInput(MaterialDialog dialog, CharSequence input) {
                                     // On FAB click, receive user input. Make sure the stock doesn't already exist
                                     // in the DB and proceed accordingly
-                                    Cursor c = getContentResolver().query(QuoteProvider.Quotes.CONTENT_URI,
-                                            new String[]{QuoteColumns.SYMBOL}, QuoteColumns.SYMBOL + "= ?",
-                                            new String[]{input.toString()}, null);
-                                    if (c.getCount() != 0) {
-                                        Toast toast =
-                                                Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
-                                                        Toast.LENGTH_LONG);
-                                        toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
-                                        toast.show();
-                                        return;
-                                    } else {
-                                        // Add the stock to DB
-                                        mServiceIntent.putExtra("tag", "add");
-                                        mServiceIntent.putExtra("symbol", input.toString());
-                                        startService(mServiceIntent);
-                                    }
+                                   lookupStockSymbol(input.toString());
                                 }
                             })
                             .show();
@@ -193,6 +178,12 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     public void onResume() {
         super.onResume();
         getLoaderManager().restartLoader(CURSOR_LOADER_ID, null, this);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
     }
 
     public void networkToast() {
@@ -254,6 +245,34 @@ public class MyStocksActivity extends AppCompatActivity implements LoaderManager
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         mCursorAdapter.swapCursor(null);
+    }
+
+    private void lookupStockSymbol(String symbol) {
+        MyStocksQueryHandler queryHandler = new MyStocksQueryHandler(getContentResolver());
+        queryHandler.startQuery(
+                0, this,
+                QuoteProvider.Quotes.CONTENT_URI,
+                new String[] {QuoteColumns.SYMBOL},
+                QuoteColumns.SYMBOL + "= ?",
+                new String[] {symbol},
+                null );
+    }
+
+    public void onStockSymbolLookup(String symbol, boolean exists) {
+
+        if (exists) {
+            Toast toast =
+                    Toast.makeText(MyStocksActivity.this, R.string.toast_message_duplicate_stock,
+                            Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
+            toast.show();
+            return;
+        } else {
+            // Add the stock to DB
+            mServiceIntent.putExtra("tag", "add");
+            mServiceIntent.putExtra("symbol", symbol);
+            startService(mServiceIntent);
+        }
     }
 
 }
