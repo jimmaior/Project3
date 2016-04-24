@@ -11,6 +11,7 @@
     <string name="widget_title" translatable="true">Today\'s Market</string>
     <string name="network_toast" translatable="true">Uh-oh! This app requires an internet connection</string>
     <string name="title_activity_stock_detail" translatable="false">StockDetailActivity</string>
+    <string name="toast_message_duplicate_stock" translatable="true">This stock is already saved!</string>
 
     !--Detail Fragment-->
     <string name="day_high_lbl" translatable="false">Day High:</string>
